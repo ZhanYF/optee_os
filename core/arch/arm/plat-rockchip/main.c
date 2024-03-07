@@ -22,6 +22,10 @@ register_phys_mem_pgdir(MEM_AREA_IO_NSEC,
 
 register_phys_mem_pgdir(MEM_AREA_IO_SEC, GIC_BASE, GIC_SIZE);
 
+// register memory range for dynamic shared memory
+// FIXME is magic number correct?
+register_ddr(0x00000000, 0xF6000000);
+
 void boot_primary_init_intc(void)
 {
 	gic_init(GICC_BASE, GICD_BASE);
